@@ -36,7 +36,7 @@ def draw_WP(mydata,index = 0,d =1 ,D =1):
     #中间的图示（区分两条直线）
     fig.legend((line1,line2),('ε','D'),'center')
     plt.savefig(sys.path[0]+'/figure/WP_'+str(index + 1))
-    print('完成 图: '+'/figure/PP_'+str(index + 1))
+    print('完成 图: '+'/figure/WP_'+str(index + 1))
     
 
 #读取 WP.DAT 数据
