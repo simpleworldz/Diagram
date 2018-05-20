@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 from draw_PP import get_data
+import sys
 
 def draw_WP(mydata,index = 0,d =1 ,D =1):
     """
@@ -34,13 +35,14 @@ def draw_WP(mydata,index = 0,d =1 ,D =1):
     line2, = ax2.plot(x,y2,'-or')
     #中间的图示（区分两条直线）
     fig.legend((line1,line2),('ε','D'),'center')
-    plt.savefig('figure/WP_'+str(index + 1))
-    print('完成 图'+str(index +1))
+    plt.savefig(sys.path[0]+'/figure/WP_'+str(index + 1))
+    print('完成 图: '+'/figure/PP_'+str(index + 1))
+    
 
 #读取 WP.DAT 数据
 #当前目录并非.py文件所在目录，而是powershell所在目录  
 if __name__ == '__main__':
-    data = np.genfromtxt('WP.DAT',delimiter = '\t')
+    data = np.genfromtxt(sys.path[0]+'/WP.DAT',delimiter = '\t')
     #作图 四幅
     for i in range(4):
         mydata = get_data(data,i)

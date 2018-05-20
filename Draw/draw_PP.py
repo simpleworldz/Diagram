@@ -1,6 +1,7 @@
 import numpy as np 
 import matplotlib.pyplot as plt 
 from scipy import interpolate 
+import sys
 
 def smooth_line(x,y,ax,linestyle = '-',color = 'r'):
     """
@@ -57,15 +58,15 @@ def darw_pp(mydata,index):
     line_2 = mlines.Line2D([],[],'1','-','r','*',label = 'D')
     fig.legend(handles = [line_1,line_2],loc = 'center')
     #保存图片 python windows也可以用/ ?
-    plt.savefig('figure/PP_'+str(index + 1))
-    print('完成 图'+str(index +1))
+    plt.savefig(sys.path[0]+'/figure/PP_'+str(index + 1))
+    print('完成 图: '+'/figure/PP_'+str(index + 1))
 
 #读取PP.DAT文件
 #当前目录并非.py文件所在目录，而是powershell所在目录  
 if __name__ == '__main__':
     #import os
     #print(os.getcwd())
-    data = np.genfromtxt('PP.DAT',delimiter = '\t')
+    data = np.genfromtxt(sys.path[0]+'/PP.DAT',delimiter = '\t')
     #作图 四幅
     for i in range(4):
         mydata = get_data(data,i)
